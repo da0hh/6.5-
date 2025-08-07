@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+
+
+int main() {
+    setlocale(LC_ALL, "RU");
+    int hour;
+    cout << "Введите, который час: "; cin >> hour;
+
+    if (hour <= 0 and hour > 12) cout << "Error..."; //американское время
+
+    int num = 0;
+    while (num < hour) {
+        cout << "Ку-ку!\n";
+        num++;
+    }
+}
