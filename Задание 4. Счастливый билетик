@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+
+
+int main() {
+    setlocale(LC_ALL, "RU");
+    int num, check = 0, lastDigit = 0; bool difference = false;
+    cout << "Введите номер билета: "; cin >> num;
+    
+    while (!difference) {
+        difference = lastDigit == num;
+        lastDigit = num % 1000;
+        num /= 1000;
+        if (lastDigit == num) { cout << "Билет счастливый!"; break; }
+        else { cout << "Повезёт в следующий раз!"; break; }
+    }
+}
