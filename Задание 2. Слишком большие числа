@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+
+
+int main() {
+    setlocale(LC_ALL, "RU");
+    int num, summ = 0, check = 0;
+    cout << "Введите число: "; cin >> num;
+
+    if (num > 10){cout << "Error"; return 0;}
+
+    check = num % 10;
+    num /= 10;
+    summ++;
+    while (num != 0) {
+        check = num % 10;
+        num /= 10;
+        summ++;
+    }
+    cout << summ;
+}
