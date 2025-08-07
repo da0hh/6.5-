@@ -8,9 +8,11 @@ int main() {
     setlocale(LC_ALL, "RU");
     int hour;
     cout << "Введите, который час: "; cin >> hour;
-
-    if (hour <= 0 and hour > 12) cout << "Error..."; //американское время
-
+     
+    if (hour <= 0 or hour > 12) {      //американское время
+        cout << "Error..."; 
+        return 0;
+    }
     int num = 0;
     while (num < hour) {
         cout << "Ку-ку!\n";
