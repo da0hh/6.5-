@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+
+
+int main() {
+    setlocale(LC_ALL, "RU");
+    string name; int gotFromDebtor, allDebt, count = 0; bool check = false;
+    cout << "Ваше имя: "; cin >> name; cout << "Ваша сумма долга: "; cin >> allDebt;
+
+    if (allDebt < 0) { cout << "Предупреждение. Вводить отрицательную сумму долга - запрещено!"; return 0; }
+    if (allDebt == false) { cout << "Введите корректную сумму долга.\n"; return 0; }
+
+    cout << "Погасите ваш долг в размере " << allDebt << " рублей.\n";
+    cout << "Отправить: "; cin >> gotFromDebtor; 
+
+    while ((gotFromDebtor == false or gotFromDebtor < 0) and !check) {
+        check = allDebt / 1 and gotFromDebtor / 1;
+        if (gotFromDebtor == false) { cout << "\nВведите корректную сумму.\n"; return 0; }
+    }
+    while (gotFromDebtor != 0 and !check) {
+        count += gotFromDebtor;
+        check = count / allDebt == 1;
+
+        if (count > 0 and count < allDebt) { cout << "Вы внесли: " << count << " рублей.\n Осталось: " << allDebt - count << " рублей.\n"; cout << "Отправить: "; cin >> gotFromDebtor;  }
+        else if (count > allDebt) { cout << "Вы внесли: " << count << " рублей.\nЭто больше суммы долга.\nОстаток на вашем счету составляет: " << count - allDebt << endl; break; }
+        else if (count == allDebt) { cout << "Вы внесли полную сумму долга.\nОстаток на вашем балансе - пуст\n"; break; }
+    }
+    cout << "Долг погашен.\n";
+}
