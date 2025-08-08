@@ -1,0 +1,40 @@
+#include <iostream>
+
+using namespace std;
+
+
+
+int main() {
+    setlocale(LC_ALL, "RU");
+    int n, prev1 = 1, prev2 = 1, current = 1;
+    bool check = false;
+
+    while (!check) {
+        cout << "Введите номер последовательности: : "; cin >> n;
+
+        if (n <= 0) cout << "Ошибка! Введите положительное целое число.\n";
+        else break;
+
+        check = n > 0;
+    }
+    
+    if (n == 1 or n == 2) {
+        cout << "Число в последовательности: 1\n";
+        return 0;
+    }
+
+    int count = 3;
+    while (count <= n) {
+        current = prev1 + prev2;
+
+        if (current > 2147483647) {
+            cout << "Ошибка! Результат превышает максимально допустимое значение.\n";
+            return 1;
+        }
+        prev1 = prev2;
+        prev2 = current;
+        count++;
+    }
+
+    cout << "Число в последовательности: " << current;
+}
