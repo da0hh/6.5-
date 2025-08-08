@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+
+
+int main() {
+    setlocale(LC_ALL, "RU");
+    int amountDeposit, wantedSumm, percentsInYear, time = 0;
+    cout << "Введите размер вклада: "; cin >> amountDeposit;
+    cout << "Введите процентную ставку: "; cin >> percentsInYear;
+    cout << "Введите желаемую сумму: "; cin >> wantedSumm;
+
+    if (amountDeposit <= 0 || wantedSumm <= 0 || percentsInYear <= 0 || amountDeposit >= wantedSumm) {
+        cout << "Некорректные входные данные" << endl;
+        return 1;
+    }
+
+    while (amountDeposit < wantedSumm) {
+        amountDeposit += amountDeposit * percentsInYear /100;
+        time++;
+    }
+    int lastDigit = time % 10;
+    int lastTwoDigits = time % 100;
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 14) cout << "Придётся подождать: " << time << " лет\n";
+    else if (lastDigit == 1) cout << "Придётся подождать: " << time << " год\n";
+    else if (lastDigit >= 2 && lastDigit <= 4)cout << "Придётся подождать: " << time << " года\n";
+    else cout << "Придётся подождать: " << time << " лет\n";
+}
